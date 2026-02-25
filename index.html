@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geri Dönüşüm - Dünyamızı Koruyalım!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2ecc71;
+    --blue: #3498db;
+    --yellow: #f1c40f;
+    --orange: #e67e22;
+    --red: #e74c3c;
+    --dark: #2c3e50;
+    --light: #ecf0f1;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: ‘Nunito’, sans-serif;
+background: #1a1a2e;
+overflow: hidden;
+height: 100vh;
+}
+
+.slide {
+display: none;
+width: 100vw;
+height: 100vh;
+position: relative;
+overflow: hidden;
+animation: fadeIn 0.6s ease;
+}
+
+.slide.active { display: flex; }
+
+@keyframes fadeIn {
+from { opacity: 0; transform: scale(0.97); }
+to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-15px); }
+}
+
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+
+@keyframes pop {
+0% { transform: scale(0); opacity: 0; }
+80% { transform: scale(1.1); }
+100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes bounce {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-8px); }
+}
+
+/* SLIDE 1 - KAPAK */
+.slide-1 {
+background: linear-gradient(135deg, #0f4c35 0%, #1a7a52 50%, #0f4c35 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+.slide-1 .bg-circles {
+position: absolute;
+width: 100%; height: 100%;
+overflow: hidden;
+}
+
+.circle {
+position: absolute;
+border-radius: 50%;
+opacity: 0.15;
+}
+
+.c1 { width: 400px; height: 400px; background: #2ecc71; top: -100px; left: -100px; }
+.c2 { width: 300px; height: 300px; background: #f1c40f; bottom: -80px; right: -80px; }
+.c3 { width: 200px; height: 200px; background: #3498db; top: 50%; right: 10%; }
+
+.recycle-icon {
+font-size: 120px;
+animation: float 3s ease-in-out infinite;
+filter: drop-shadow(0 10px 30px rgba(46,204,113,0.5));
+margin-bottom: 20px;
+}
+
+.slide-1 h1 {
+font-family: ‘Fredoka One’, cursive;
+font-size: 64px;
+color: #fff;
+text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+line-height: 1.1;
+margin-bottom: 16px;
+}
+
+.slide-1 .subtitle {
+font-size: 24px;
+color: rgba(255,255,255,0.85);
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+.slide-1 .tag {
+display: inline-block;
+background: rgba(255,255,255,0.2);
+border: 2px solid rgba(255,255,255,0.4);
+color: #fff;
+padding: 8px 24px;
+border-radius: 30px;
+font-size: 16px;
+margin-top: 10px;
+}
+
+/* SLIDE 2 - GERİ DÖNÜŞÜM NEDİR */
+.slide-2 {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 60px;
+text-align: center;
+}
+
+.slide-title {
+font-family: ‘Fredoka One’, cursive;
+font-size: 48px;
+color: #fff;
+margin-bottom: 40px;
+text-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+.definition-box {
+background: rgba(255,255,255,0.95);
+border-radius: 24px;
+padding: 40px 60px;
+max-width: 800px;
+box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+position: relative;
+}
+
+.definition-box .big-emoji {
+font-size: 70px;
+margin-bottom: 16px;
+animation: bounce 2s ease-in-out infinite;
+display: block;
+}
+
+.definition-box p {
+font-size: 22px;
+color: #2c3e50;
+line-height: 1.6;
+font-weight: 700;
+}
+
+.definition-box p span {
+color: #8e44ad;
+font-size: 26px;
+}
+
+.examples {
+display: flex;
+gap: 20px;
+margin-top: 24px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.example-item {
+background: linear-gradient(135deg, #8e44ad, #667eea);
+color: white;
+padding: 10px 20px;
+border-radius: 50px;
+font-size: 16px;
+font-weight: 700;
+animation: pop 0.5s ease forwards;
+}
+
+/* SLIDE 3 - NEDEN GERİ DÖNÜŞÜM */
+.slide-3 {
+background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 50px;
+}
+
+.reasons-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+max-width: 860px;
+width: 100%;
+margin-top: 30px;
+}
+
+.reason-card {
+background: rgba(255,255,255,0.95);
+border-radius: 20px;
+padding: 28px;
+display: flex;
+align-items: center;
+gap: 18px;
+box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+animation: pop 0.5s ease forwards;
+}
+
+.reason-card .icon { font-size: 50px; flex-shrink: 0; }
+
+.reason-card h3 {
+font-family: ‘Fredoka One’, cursive;
+font-size: 20px;
+color: #c0392b;
+margin-bottom: 4px;
+}
+
+.reason-card p { font-size: 14px; color: #555; font-weight: 600; line-height: 1.4; }
+
+/* SLIDE 4 - RENK KODLARI */
+.slide-4 {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 40px;
+}
+
+.bins-container {
+display: flex;
+gap: 24px;
+margin-top: 30px;
+align-items: flex-end;
+}
+
+.bin {
+display: flex;
+flex-direction: column;
+align-items: center;
+animation: pop 0.6s ease forwards;
+}
+
+.bin-body {
+width: 130px;
+height: 160px;
+border-radius: 10px 10px 16px 16px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 8px;
+box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+cursor: default;
+transition: transform 0.2s;
+position: relative;
+}
+
+.bin-body:hover { transform: translateY(-8px) scale(1.05); }
+
+.bin-lid {
+width: 140px;
+height: 22px;
+border-radius: 8px 8px 0 0;
+margin-bottom: -4px;
+z-index: 1;
+}
+
+.bin-emoji { font-size: 36px; }
+
+.bin-label {
+color: rgba(255,255,255,0.9);
+font-size: 12px;
+font-weight: 900;
+text-align: center;
+line-height: 1.3;
+padding: 0 8px;
+}
+
+.bin-name {
+margin-top: 10px;
+color: #fff;
+font-family: ‘Fredoka One’, cursive;
+font-size: 16px;
+text-align: center;
+}
+
+.bin-items {
+font-size: 11px;
+color: rgba(255,255,255,0.6);
+text-align: center;
+max-width: 130px;
+margin-top: 4px;
+font-weight: 700;
+}
+
+.blue-bin .bin-lid, .blue-bin .bin-body { background: #2980b9; }
+.yellow-bin .bin-lid, .yellow-bin .bin-body { background: #f39c12; }
+.green-bin .bin-lid, .green-bin .bin-body { background: #27ae60; }
+.red-bin .bin-lid, .red-bin .bin-body { background: #c0392b; }
+.brown-bin .bin-lid, .brown-bin .bin-body { background: #7f5539; }
+
+/* SLIDE 5 - FAYDALAR */
+.slide-5 {
+background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 50px;
+}
+
+.benefits-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 18px;
+max-width: 900px;
+margin-top: 30px;
+}
+
+.benefit-card {
+background: rgba(255,255,255,0.1);
+border: 2px solid rgba(255,255,255,0.2);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+padding: 24px;
+text-align: center;
+animation: pop 0.5s ease forwards;
+transition: transform 0.2s, background 0.2s;
+}
+
+.benefit-card:hover {
+transform: translateY(-6px);
+background: rgba(255,255,255,0.2);
+}
+
+.benefit-card .big-num {
+font-family: ‘Fredoka One’, cursive;
+font-size: 48px;
+color: #2ecc71;
+display: block;
+line-height: 1;
+}
+
+.benefit-card .b-icon { font-size: 40px; margin-bottom: 10px; display: block; }
+.benefit-card h3 { color: #fff; font-size: 16px; font-family: ‘Fredoka One’, cursive; margin-bottom: 6px; }
+.benefit-card p { color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; }
+
+/* SLIDE 6 - NASIL YAPILIR ADIMLAR */
+.slide-6 {
+background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 50px;
+}
+
+.steps {
+display: flex;
+flex-direction: column;
+gap: 16px;
+max-width: 700px;
+width: 100%;
+margin-top: 24px;
+}
+
+.step {
+background: rgba(255,255,255,0.92);
+border-radius: 16px;
+padding: 18px 24px;
+display: flex;
+align-items: center;
+gap: 18px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+animation: pop 0.4s ease forwards;
+}
+
+.step-num {
+width: 50px;
+height: 50px;
+background: linear-gradient(135deg, #56ab2f, #a8e063);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘Fredoka One’, cursive;
+font-size: 24px;
+color: #fff;
+flex-shrink: 0;
+box-shadow: 0 4px 12px rgba(86,171,47,0.5);
+}
+
+.step-content h3 { font-family: ‘Fredoka One’, cursive; font-size: 20px; color: #2c7a1f; }
+.step-content p { font-size: 14px; color: #555; font-weight: 600; }
+
+/* SLIDE 7 - İLGİNÇ SAYILAR */
+.slide-7 {
+background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 50px;
+}
+
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+max-width: 800px;
+margin-top: 30px;
+}
+
+.stat-card {
+background: rgba(255,255,255,0.95);
+border-radius: 20px;
+padding: 28px;
+text-align: center;
+animation: pop 0.5s ease forwards;
+}
+
+.stat-card .stat-icon { font-size: 50px; display: block; margin-bottom: 10px; }
+.stat-card .stat-num {
+font-family: ‘Fredoka One’, cursive;
+font-size: 48px;
+color: #e74c3c;
+line-height: 1;
+display: block;
+}
+.stat-card p { font-size: 15px; color: #333; font-weight: 700; margin-top: 6px; }
+
+/* SLIDE 8 - BİZ DE YAPABİLİRİZ */
+.slide-8 {
+background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 50px;
+text-align: center;
+}
+
+.actions-wrap {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+justify-content: center;
+margin-top: 30px;
+max-width: 800px;
+}
+
+.action-bubble {
+background: rgba(255,255,255,0.9);
+border-radius: 20px;
+padding: 22px 26px;
+text-align: center;
+width: 180px;
+animation: pop 0.5s ease forwards;
+box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+transition: transform 0.2s;
+}
+
+.action-bubble:hover { transform: scale(1.08) rotate(-2deg); }
+.action-bubble .a-icon { font-size: 44px; display: block; margin-bottom: 8px; }
+.action-bubble p { font-size: 14px; font-weight: 800; color: #1a5276; }
+
+/* SLIDE 9 - SONUÇ */
+.slide-9 {
+background: linear-gradient(135deg, #0f4c35 0%, #1a7a52 50%, #0f4c35 100%);
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 60px;
+}
+
+.earth-emoji {
+font-size: 120px;
+animation: float 3s ease-in-out infinite;
+filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+margin-bottom: 24px;
+}
+
+.slide-9 h2 {
+font-family: ‘Fredoka One’, cursive;
+font-size: 52px;
+color: #fff;
+margin-bottom: 16px;
+text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.slide-9 p {
+font-size: 22px;
+color: rgba(255,255,255,0.85);
+font-weight: 700;
+max-width: 600px;
+line-height: 1.5;
+}
+
+.hearts {
+display: flex;
+gap: 12px;
+margin-top: 24px;
+justify-content: center;
+font-size: 36px;
+}
+
+.heart { animation: bounce 1.5s ease-in-out infinite; }
+.heart:nth-child(2) { animation-delay: 0.2s; }
+.heart:nth-child(3) { animation-delay: 0.4s; }
+
+/* NAVIGATION */
+.nav {
+position: fixed;
+bottom: 30px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+align-items: center;
+gap: 16px;
+background: rgba(0,0,0,0.5);
+backdrop-filter: blur(10px);
+padding: 12px 24px;
+border-radius: 50px;
+border: 1px solid rgba(255,255,255,0.2);
+z-index: 100;
+}
+
+.nav button {
+background: rgba(255,255,255,0.2);
+border: 2px solid rgba(255,255,255,0.4);
+color: white;
+font-family: ‘Fredoka One’, cursive;
+font-size: 18px;
+width: 44px;
+height: 44px;
+border-radius: 50%;
+cursor: pointer;
+transition: all 0.2s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.nav button:hover { background: rgba(255,255,255,0.4); transform: scale(1.1); }
+.nav button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.slide-counter {
+color: white;
+font-family: ‘Fredoka One’, cursive;
+font-size: 16px;
+min-width: 70px;
+text-align: center;
+}
+
+.dots {
+display: flex;
+gap: 6px;
+}
+
+.dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: rgba(255,255,255,0.3);
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.dot.active { background: #2ecc71; transform: scale(1.3); }
+</style>
+
+</head>
+<body>
+
+<!-- SLIDE 1: KAPAK -->
+
+<div class="slide slide-1 active">
+  <div class="bg-circles">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+  </div>
+  <div class="recycle-icon">♻️</div>
+  <h1>Geri Dönüşüm</h1>
+  <p class="subtitle">🌍 Dünyamızı Birlikte Koruyalım!</p>
+  <div class="tag">4. Sınıf Fen Bilimleri</div>
+</div>
+
+<!-- SLIDE 2: GERİ DÖNÜŞÜM NEDİR -->
+
+<div class="slide slide-2">
+  <h2 class="slide-title">♻️ Geri Dönüşüm Nedir?</h2>
+  <div class="definition-box">
+    <span class="big-emoji">🤔</span>
+    <p>
+      Kullandığımız ve atmak istediğimiz <span>atık malzemeleri</span>,<br>
+      yeniden işleyerek <span>yeni ürünlere</span> dönüştürme işlemine<br>
+      <span>GERİ DÖNÜŞÜM</span> denir!
+    </p>
+    <div class="examples">
+      <div class="example-item">📰 Kağıt → Yeni Kağıt</div>
+      <div class="example-item">🥤 Plastik → Oyuncak</div>
+      <div class="example-item">🥫 Metal → Araba parçası</div>
+      <div class="example-item">🍶 Cam → Yeni Şişe</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: NEDEN GERİ DÖNÜŞÜM -->
+
+<div class="slide slide-3">
+  <h2 class="slide-title">🌱 Neden Geri Dönüşüm Yapmalıyız?</h2>
+  <div class="reasons-grid">
+    <div class="reason-card">
+      <div class="icon">🌳</div>
+      <div>
+        <h3>Ormanlarımızı Korur</h3>
+        <p>Kağıt geri dönüştürülerek milyonlarca ağacın kesilmesi önlenir!</p>
+      </div>
+    </div>
+    <div class="reason-card">
+      <div class="icon">💧</div>
+      <div>
+        <h3>Suyu Temiz Tutar</h3>
+        <p>Atıkların toprağa karışması yeraltı sularını kirletir. Geri dönüşüm bunu önler!</p>
+      </div>
+    </div>
+    <div class="reason-card">
+      <div class="icon">🌬️</div>
+      <div>
+        <h3>Havayı Temizler</h3>
+        <p>Çöpler yakıldığında zararlı gazlar çıkar. Geri dönüşüm hava kirliliğini azaltır!</p>
+      </div>
+    </div>
+    <div class="reason-card">
+      <div class="icon">⚡</div>
+      <div>
+        <h3>Enerji Tasarrufu</h3>
+        <p>Geri dönüşüm, sıfırdan üretimden çok daha az enerji gerektirir!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: RENK KODLARI -->
+
+<div class="slide slide-4">
+  <h2 class="slide-title" style="color:#fff; font-family:'Fredoka One',cursive; font-size:40px; margin-bottom:0;">🗑️ Hangi Çöp Hangi Kutuya?</h2>
+  <div class="bins-container">
+    <div class="bin">
+      <div class="bin-lid blue-bin" style="background:#1a6fa8;"></div>
+      <div class="bin-body blue-bin">
+        <div class="bin-emoji">📄</div>
+        <div class="bin-label">KAĞIT<br>KARTON</div>
+      </div>
+      <div class="bin-name">🔵 Mavi</div>
+      <div class="bin-items">Gazete, kitap,<br>karton kutu</div>
+    </div>
+    <div class="bin">
+      <div class="bin-lid yellow-bin" style="background:#d68910;"></div>
+      <div class="bin-body yellow-bin">
+        <div class="bin-emoji">🥤</div>
+        <div class="bin-label">PLASTİK<br>METAL</div>
+      </div>
+      <div class="bin-name">🟡 Sarı</div>
+      <div class="bin-items">Şişe, kutu,<br>teneke, folyo</div>
+    </div>
+    <div class="bin">
+      <div class="bin-lid green-bin" style="background:#1e8449;"></div>
+      <div class="bin-body green-bin">
+        <div class="bin-emoji">🍶</div>
+        <div class="bin-label">CAM</div>
+      </div>
+      <div class="bin-name">🟢 Yeşil</div>
+      <div class="bin-items">Şişe, kavanoz,<br>cam bardak</div>
+    </div>
+    <div class="bin">
+      <div class="bin-lid" style="background:#a93226;"></div>
+      <div class="bin-body" style="background:#c0392b;">
+        <div class="bin-emoji">🔋</div>
+        <div class="bin-label">TEHLİKELİ<br>ATIK</div>
+      </div>
+      <div class="bin-name">🔴 Kırmızı</div>
+      <div class="bin-items">Pil, ilaç,<br>elektronik</div>
+    </div>
+    <div class="bin">
+      <div class="bin-lid" style="background:#5d4037;"></div>
+      <div class="bin-body" style="background:#7f5539;">
+        <div class="bin-emoji">🍌</div>
+        <div class="bin-label">ORGANIK<br>ATIK</div>
+      </div>
+      <div class="bin-name">🟤 Kahve</div>
+      <div class="bin-items">Yemek artığı,<br>çay, meyve</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: FAYDALAR -->
+
+<div class="slide slide-5">
+  <h2 class="slide-title" style="color:#fff; font-family:'Fredoka One',cursive; font-size:44px;">🌟 Geri Dönüşümün Faydaları</h2>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <span class="b-icon">🌊</span>
+      <h3>Denizleri Korur</h3>
+      <p>Okyanuslar plastik atıklardan temizlenir</p>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🦁</span>
+      <h3>Hayvanları Korur</h3>
+      <p>Doğadaki canlılar atıklardan zarar görmez</p>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">⚡</span>
+      <h3>Enerji Kazanır</h3>
+      <p>Daha az fabrika enerjisi kullanılır</p>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">💰</span>
+      <h3>Para Tasarrufu</h3>
+      <p>Yeni hammadde almak gerekmez</p>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🏔️</span>
+      <h3>Toprak Temizlenir</h3>
+      <p>Çöp depolama alanları azalır</p>
+    </div>
+    <div class="benefit-card">
+      <span class="b-icon">🌡️</span>
+      <h3>İklimi Korur</h3>
+      <p>Sera gazı emisyonları azalır</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: NASIL YAPILIR -->
+
+<div class="slide slide-6">
+  <h2 class="slide-title" style="color:#fff; font-family:'Fredoka One',cursive; font-size:44px; text-shadow:2px 2px 0 rgba(0,0,0,0.2);">✅ Nasıl Geri Dönüşüm Yapılır?</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>🔍 Atığı Tanı!</h3>
+        <p>Elindeki atığın kağıt mı, plastik mi, cam mı yoksa metal mi olduğunu anla.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>🚿 Temizle!</h3>
+        <p>Geri dönüşüm kutusuna atmadan önce plastik şişe ve cam kavanozları hafifçe durula.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>🗑️ Doğru Kutuya At!</h3>
+        <p>Renkli geri dönüşüm kutularını kullan: Mavi=Kağıt, Sarı=Plastik, Yeşil=Cam.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>🎉 Arkadaşlarına Anlat!</h3>
+        <p>Geri dönüşüm alışkanlığını ailene, arkadaşlarına ve komşularına da öğret!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: İLGİNÇ RAKAMLAR -->
+
+<div class="slide slide-7">
+  <h2 class="slide-title" style="color:#fff; font-family:'Fredoka One',cursive; font-size:44px; text-shadow:2px 2px 0 rgba(0,0,0,0.2);">📊 Biliyor muydun?</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-icon">📰</span>
+      <span class="stat-num">17</span>
+      <p>1 ton kağıt geri dönüştürülünce<br><strong>17 ağaç</strong> kurtarılır!</p>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon">🥤</span>
+      <span class="stat-num">500</span>
+      <p>Plastik şişe doğada<br><strong>500 yılda</strong> çözülür!</p>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon">💡</span>
+      <span class="stat-num">%95</span>
+      <p>Alüminyum geri dönüşümü,<br>yeni üretimden <strong>%95 az</strong> enerji kullanır!</p>
+    </div>
+    <div class="stat-card">
+      <span class="stat-icon">🌍</span>
+      <span class="stat-num">2M</span>
+      <p>Dünyada her yıl<br><strong>2 milyon ton</strong> plastik okyanuslara karışır!</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: BİZ DE YAPABİLİRİZ -->
+
+<div class="slide slide-8">
+  <h2 class="slide-title" style="color:#1a5276; font-family:'Fredoka One',cursive; font-size:44px;">💪 Biz de Yapabiliriz!</h2>
+  <p style="color:#1a5276; font-size:18px; font-weight:700; margin-bottom:0;">Her gün yapabileceğimiz küçük adımlar büyük fark yaratır!</p>
+  <div class="actions-wrap">
+    <div class="action-bubble">
+      <span class="a-icon">♻️</span>
+      <p>Geri dönüşüm kutularını kullan</p>
+    </div>
+    <div class="action-bubble">
+      <span class="a-icon">🛍️</span>
+      <p>Bez çanta kullan, plastik alma</p>
+    </div>
+    <div class="action-bubble">
+      <span class="a-icon">🚰</span>
+      <p>Cam matara kullan</p>
+    </div>
+    <div class="action-bubble">
+      <span class="a-icon">💡</span>
+      <p>Işıkları kullanmadığında söndür</p>
+    </div>
+    <div class="action-bubble">
+      <span class="a-icon">📚</span>
+      <p>Kitapları arkadaşlarınla paylaş</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: SONUÇ -->
+
+<div class="slide slide-9">
+  <div class="earth-emoji">🌍</div>
+  <h2>Dünyamız Bizim Elimizde!</h2>
+  <p>Geri dönüşüm yaparak hem doğayı hem de gelecek nesilleri koruyoruz. Küçük adımlar büyük değişimlere yol açar! 🌿</p>
+  <div class="hearts">
+    <span class="heart">💚</span>
+    <span class="heart">💙</span>
+    <span class="heart">💛</span>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+
+<div class="nav">
+  <button id="prevBtn" onclick="changeSlide(-1)" disabled>◀</button>
+  <div class="dots" id="dots"></div>
+  <span class="slide-counter" id="counter">1 / 9</span>
+  <button id="nextBtn" onclick="changeSlide(1)">▶</button>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  const dotsContainer = document.getElementById('dots');
+
+  // Create dots
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goTo(i);
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+    document.getElementById('counter').textContent = `${current + 1} / ${total}`;
+    document.getElementById('prevBtn').disabled = current === 0;
+    document.getElementById('nextBtn').disabled = current === total - 1;
+  }
+
+  function changeSlide(dir) {
+    const next = current + dir;
+    if (next >= 0 && next < total) goTo(next);
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  });
+</script>
+
+</body>
+</html>
